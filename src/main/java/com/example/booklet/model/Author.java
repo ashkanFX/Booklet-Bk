@@ -1,4 +1,4 @@
-package com.example.booklet.module.model;
+package com.example.booklet.model;
 
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
@@ -26,6 +26,19 @@ public class Author {
 
     @Column(unique = true)
     private String email;
+
+    private String firstname;
+    private String university;
+    private String lastname;
+    private Boolean isAlive;
+
+    @Column(name = "updated_at")
+    @UpdateTimestamp
+    private LocalDateTime updatedAt;
+
+    @Column(name = "created_at", updatable = false)
+    @CreationTimestamp
+    private LocalDateTime createdAt;
 
     public long getId() {
         return id;
@@ -74,19 +87,5 @@ public class Author {
     public void setIsAlive(boolean isAlive) {
         this.isAlive = isAlive;
     }
-
-    private String firstname;
-    private String university;
-    private String lastname;
-    private Boolean isAlive;
-
-    @Column(name = "updated_at")
-    @UpdateTimestamp
-    private LocalDateTime updatedAt;
-
-    @Column(name = "created_at", updatable = false)
-    @CreationTimestamp
-    private LocalDateTime createdAt;
-
 
 }
