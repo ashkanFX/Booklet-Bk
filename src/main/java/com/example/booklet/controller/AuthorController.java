@@ -20,15 +20,13 @@ public class AuthorController {
     }
 
     @PostMapping(value = "/register")
-    public Author registerAuthor(@RequestBody Author author)  {
+    public Author registerAuthor(@RequestBody Author author) {
         if (authorService.exist(author.getEmail())) {
             throw new addException("the user is exist");
         } else {
             return authorService.registerAuthor(author);
         }
-
     }
-
 
     @GetMapping(value = "/getList")
     public List<Author> getAuthor() {
@@ -39,5 +37,6 @@ public class AuthorController {
     public void getAuthor(@PathVariable long id) {
         authorService.deleteAuthor(id);
     }
+
 
 }

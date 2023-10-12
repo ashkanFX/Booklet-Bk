@@ -13,6 +13,7 @@ import java.util.Optional;
 public class AuthorServiceImpl implements AuthorService {
     @Autowired
     private AuthorRepository authorRepository;
+     
     public Optional<Author> findByEmail(String email) {return authorRepository.findByEmail(email);}
     public boolean exist(String email){return authorRepository.existsByEmail(email);}
     public List<Author> findAllAuthor() {return this.authorRepository.findAll();}
@@ -21,6 +22,8 @@ public class AuthorServiceImpl implements AuthorService {
     }
 
     public void deleteAuthor(long id) {
+
         this.authorRepository.deleteById(id);
     }
+
 }

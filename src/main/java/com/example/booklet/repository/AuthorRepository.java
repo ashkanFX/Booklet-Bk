@@ -8,13 +8,7 @@ import java.util.Optional;
 
 @Repository
 public interface AuthorRepository extends JpaRepository<Author, Long> {
-
-
-
-
     AuthorRepository findByFirstname(String Name);
-
     boolean existsByEmail(String email);
-
     Optional<Author> findByEmail(String aLong);
 }
