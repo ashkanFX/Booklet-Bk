@@ -12,6 +12,7 @@ public class Document {
     private String name;
 
     @ManyToOne
+
     private Author author;
 
     private LocalDateTime CreatedAt;
