@@ -1,7 +1,9 @@
 package com.example.booklet.controller;
 
+import com.example.booklet.controller.dto.AuthorRegisterRequestDto;
 import com.example.booklet.exception.addException;
 import com.example.booklet.model.Author;
+import com.example.booklet.service.dto.AuthorDto;
 import com.example.booklet.service.impl.AuthorServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -21,7 +23,7 @@ public class AuthorController {
     }
 
     @PostMapping(value = "/register")
-    public Author registerAuthor(@RequestBody Author author) {
+    public AuthorDto registerAuthor(@RequestBody AuthorRegisterRequestDto author) {
         if (authorService.exist(author.getEmail())) {
             throw new addException("the user is exist");
         } else {

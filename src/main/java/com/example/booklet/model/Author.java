@@ -1,6 +1,7 @@
 package com.example.booklet.model;
 
 import jakarta.persistence.*;
+import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -8,6 +9,7 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "Author_tbl")
+@Data
 public class Author {
     public Author() {
     }
@@ -40,52 +42,5 @@ public class Author {
     @CreationTimestamp
     private LocalDateTime createdAt;
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getFirstname() {
-        return firstname;
-    }
-
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
-    }
-
-    public String getUniversity() {
-        return university;
-    }
-
-    public void setUniversity(String university) {
-        this.university = university;
-    }
-
-    public String getLastname() {
-        return lastname;
-    }
-
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
-    }
-
-    public boolean getIsAlive() {
-        return isAlive;
-    }
-
-    public void setIsAlive(boolean isAlive) {
-        this.isAlive = isAlive;
-    }
 
 }
