@@ -60,7 +60,14 @@ public class AuthorServiceImpl implements AuthorService {
             throw new NotFoundException();
         });
         author.setEmail(request.getEmail());
+        author.setUniversity(request.getUniversity());
         this.authorRepository.save(author);
 
+    }
+    public List<Author> getLatestChangeData(){
+        return  this.authorRepository.findFirst3ByOrderByUpdatedAtDesc();
+    }
+    public List<Author> getLatestData(){
+        return  this.authorRepository.findFirst3ByOrderByIdDesc();
     }
 }

@@ -6,6 +6,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "Author_tbl")
@@ -33,6 +34,9 @@ public class Author {
     private String university;
     private String lastname;
     private Boolean isAlive;
+
+    @OneToMany
+    private List<Document> documents    ;
 
     @Column(name = "updated_at")
     @UpdateTimestamp

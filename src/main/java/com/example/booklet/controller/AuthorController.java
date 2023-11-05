@@ -2,14 +2,11 @@ package com.example.booklet.controller;
 
 import com.example.booklet.controller.dto.AuthorRegisterRequestDto;
 import com.example.booklet.controller.dto.AuthorUpdateRegisterDto;
-import com.example.booklet.exception.AlreadyException;
 import com.example.booklet.model.Author;
 import com.example.booklet.service.dto.AuthorDto;
 import com.example.booklet.service.impl.AuthorServiceImpl;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -49,6 +46,11 @@ public class AuthorController {
     public ResponseEntity<String> update(@RequestBody AuthorUpdateRegisterDto registerDto) {
         this.authorService.updateAuthor(registerDto);
         return ResponseEntity.status(HttpStatus.ACCEPTED).body("updated");
+    }
+
+    @GetMapping(value = "/latestAdd")
+    public List<Author> latestAdd() {
+        return this.authorService.getLatestData();
     }
 
 }

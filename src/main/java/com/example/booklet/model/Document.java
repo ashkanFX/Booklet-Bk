@@ -10,9 +10,9 @@ public class Document {
     @GeneratedValue
     private Long id;
     private String name;
+    private String des;
 
     @ManyToOne
-
     private Author author;
 
     private LocalDateTime CreatedAt;
@@ -45,5 +45,13 @@ public class Document {
 
     public void setAuthor(Author author) {
         this.author = author;
+    }
+
+    public String getDes() {
+        return des;
+    }
+
+    public void setDes(String des) {
+        this.des = des;
     }
 }
